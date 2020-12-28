@@ -70,10 +70,13 @@
 
                 <p>{{ movie.overview }}</p>
 
-                <div class="actions">
+                <div
+                  class="actions"
+                  v-if="$store && $store.state && $store.state.auth"
+                >
                   <b-button
                     variant="secondary"
-                    v-if="status.favorite"
+                    v-if="status && status.favorite"
                     @click="toggleFavorite()"
                     :disabled="loading"
                   >
