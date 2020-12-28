@@ -197,7 +197,14 @@ export default {
       // calculate (and subtract) whole minutes
       const minutes = Math.floor(seconds / 60) % 60;
 
-      return hours + "h " + minutes + "m ";
+      let result = "";
+      if (hours > 0) {
+        result += hours + "h ";
+      }
+      if (minutes > 0) {
+        result += minutes + "m ";
+      }
+      return result;
     },
   },
 };
