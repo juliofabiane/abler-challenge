@@ -44,8 +44,10 @@
                 </p>
 
                 <ul>
-                  <li>{{ movie.release_date | formatDate }}</li>
-                  <li>
+                  <li v-if="movie.release_date">
+                    {{ movie.release_date | formatDate }}
+                  </li>
+                  <li v-if="movie.genres && movie.genres.length">
                     <span
                       v-for="(genre, index) in movie.genres"
                       :key="genre.id"
@@ -53,12 +55,13 @@
                       <span v-if="index > 0">,</span> {{ genre.name }}
                     </span>
                   </li>
-                  <li>{{ movie.runtime | formatTime }}</li>
+                  <li v-if="movie.runtime">{{ movie.runtime | formatTime }}</li>
                 </ul>
 
                 <div class="progress-container">
                   <small
-                    >Avaliação dos usuários: {{ movie.vote_average * 10 }}%</small
+                    >Avaliação dos usuários:
+                    {{ movie.vote_average * 10 }}%</small
                   >
                   <b-progress
                     height="3px"
