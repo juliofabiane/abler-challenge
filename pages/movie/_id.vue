@@ -58,12 +58,12 @@
 
                 <div class="progress-container">
                   <small
-                    >Avaliação dos usuários: {{ movie.vote_average }}%</small
+                    >Avaliação dos usuários: {{ movie.vote_average * 10 }}%</small
                   >
                   <b-progress
                     height="3px"
-                    :value="movie.vote_average"
-                    :max="10"
+                    :value="movie.vote_average * 10"
+                    :max="100"
                     :variant="movie.vote_average > 7 ? 'success' : 'warning'"
                   ></b-progress>
                 </div>
